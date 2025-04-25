@@ -1,15 +1,16 @@
 .app {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  background: #f2f2f2;
+  padding: 10px;
+  height: 100vh;
+  background: #dae8ff;
   text-align: center;
 }
 
 .setup, .scoreboard {
   background: white;
   margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 50px;
   max-width: 800px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -19,15 +20,15 @@
 }
 
 .frames input {
-  width: 40px;
+  width: 60px;
   margin: 2px;
 }
 
 button {
-  margin-top: 10px;
-  padding: 8px 16px;
+  margin-top: 0px;
+  padding: 4px 16px;
   border: none;
-  background: #007bff;
+  background: #3c52ff;
   color: white;
   border-radius: 5px;
   cursor: pointer;
@@ -41,5 +42,5 @@ button:hover {
   margin-top: 20px;
   font-size: 24px;
   font-weight: bold;
-  color: green;
+  color: rgb(66, 174, 30);
 }
