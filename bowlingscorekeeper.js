@@ -67,7 +67,7 @@ function BowlingProvider({ children }) {
             setNewPlayer("");
           }
         };
-        
+
         return (
             <div className="setup">
               <h2>Setup</h2>
@@ -93,3 +93,27 @@ function BowlingProvider({ children }) {
             </div>
           );
         }
+
+        function ScoreBoard() {
+            const { players, scores, updateScore, currentGame, matchSize, resetGame } = useContext(BowlingContext);
+          
+            const totalScores = (player) =>
+              (scores[player] || []).reduce((sum, frame) => sum + (frame?.score || 0), 0);
+          
+            const handleChange = (player, frame, value) => {
+              const num = parseInt(value) || 0;
+              if (num <= 30) updateScore(player, frame, num);
+            };
+          
+            const winner = () => {
+              let best = null;
+              let bestAvg = 0;
+              players.forEach((p) => {
+                const avg = totalScores(p) / currentGame;
+                if (avg > bestAvg) {
+                  best = p;
+                  bestAvg = avg;
+                }
+              });
+              return best;
+            };
