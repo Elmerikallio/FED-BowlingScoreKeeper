@@ -117,3 +117,38 @@ function BowlingProvider({ children }) {
               });
               return best;
             };
+    
+            return (
+                <div className="scoreboard">
+                  <h2>Game {currentGame}/{matchSize}</h2>
+                  {players.map((player) => (
+                    <div key={player} className="player-score">
+                      <h3>{player}</h3>
+                      <div className="frames">
+                        {[...Array(10)].map((_, idx) => (
+                          <input
+                            key={idx}
+                            type="number"
+                            min="0"
+                            max="30"
+                            value={scores[player]?.[idx]?.score || ""}
+                            onChange={(e) => handleChange(player, idx + 1, e.target.value)}
+                            placeholder={`F${idx + 1}`}
+                          />
+                        ))}
+                      </div>
+                      <div>Total: {totalScores(player)}</div>
+                      <div>Average: {(totalScores(player) / currentGame).toFixed(2)}</div>
+                    </div>
+                  ))}
+
+                  {currentGame >= matchSize ? (
+                    <div className="winner">
+                    <h2>Winner: {winner()}</h2>
+                </div>
+                ) : (
+                <button onClick={resetGame} className="next-game">Next Game</button>
+                )}
+                </div>
+            );
+        } 
