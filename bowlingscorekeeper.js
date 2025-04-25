@@ -57,4 +57,14 @@ function BowlingProvider({ children }) {
     
       return <BowlingContext.Provider value={value}>{children}</BowlingContext.Provider>;
     }
-    
+    function GameSetup() {
+        const { players, addPlayer, matchSize, setMatchSize } = useContext(BowlingContext);
+        const [newPlayer, setNewPlayer] = useState("");
+      
+        const handleAdd = () => {
+          if (newPlayer.trim()) {
+            addPlayer(newPlayer.trim());
+            setNewPlayer("");
+          }
+        };
+      
