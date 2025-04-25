@@ -34,3 +34,27 @@ function BowlingProvider({ children }) {
           return { ...prev, [player]: updatedScores };
         });
       };
+
+      const resetGame = () => {
+        setCurrentGame((g) => g + 1);
+        setScores((prev) => {
+          const reset = {};
+          players.forEach((p) => (reset[p] = []));
+          return reset;
+        });
+      };
+    
+      const value = {
+        players,
+        addPlayer,
+        matchSize,
+        setMatchSize,
+        scores,
+        updateScore,
+        currentGame,
+        resetGame,
+      };
+    
+      return <BowlingContext.Provider value={value}>{children}</BowlingContext.Provider>;
+    }
+    
