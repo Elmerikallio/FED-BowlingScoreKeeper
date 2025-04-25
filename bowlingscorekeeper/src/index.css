@@ -2,6 +2,7 @@
   font-family: Arial, sans-serif;
   padding: 10px;
   height: 100vh;
+  margin: -10px;
   background: #dae8ff;
   text-align: center;
 }
@@ -9,7 +10,7 @@
 .setup, .scoreboard {
   background: white;
   margin: 20px auto;
-  padding: 30px;
+  padding: 20px;
   border-radius: 50px;
   max-width: 800px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -25,7 +26,7 @@
 }
 
 button {
-  margin-top: 0px;
+  margin: 10px;
   padding: 4px 16px;
   border: none;
   background: #3c52ff;
