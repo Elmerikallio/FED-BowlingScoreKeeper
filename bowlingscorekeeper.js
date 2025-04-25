@@ -67,4 +67,29 @@ function BowlingProvider({ children }) {
             setNewPlayer("");
           }
         };
-      
+        
+        return (
+            <div className="setup">
+              <h2>Setup</h2>
+              <input
+                value={newPlayer}
+                onChange={(e) => setNewPlayer(e.target.value)}
+                placeholder="Player name"
+              />
+              <button onClick={handleAdd}>Add Player</button>
+              <div>
+                <label>Match Size:</label>
+                <select value={matchSize} onChange={(e) => setMatchSize(Number(e.target.value))}>
+                  <option value={3}>3 Games</option>
+                  <option value={5}>5 Games</option>
+                </select>
+              </div>
+              <div className="players">
+                <h3>Players:</h3>
+                {players.map((p, idx) => (
+                  <div key={idx}>{p}</div>
+                ))}
+              </div>
+            </div>
+          );
+        }
